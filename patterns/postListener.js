@@ -28,7 +28,9 @@ module.exports = async (client) => {
                 if (result.currentState === 'DEAD') return;
                 // update user
 
-                if (result.postedToday = false) {
+                if (result.postedToday == false) {
+
+                    console.log ('havent posted today, creating daily fortune')
                     result.streak += 1;
                     // reply with daily quote.
                     const embed = new EmbedBuilder()
@@ -38,7 +40,7 @@ module.exports = async (client) => {
                     const response = await message.reply({content: `VALID POST: Your current streak is ${result.streak}`, embeds: [embed] })
                     setTimeout(() => {
                         response.delete();
-                    }, 20 * 1000);
+                    }, 30 * 1000);
                 }
 
                 result.currentState = 'SAFE';

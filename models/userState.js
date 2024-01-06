@@ -7,6 +7,7 @@ const userSchema = new Schema({
 	currentState: { type: String, required: true },
 	lastPostTime: { type: Number, required: true },
 	streak: { type: Number, required: true },
+	postedToday: { type: Boolean, required: true},
 
 }, { timestamps: true });
 

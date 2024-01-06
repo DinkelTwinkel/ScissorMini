@@ -28,6 +28,14 @@ registerCommands;
 
 client.once(Events.ClientReady, async c => {
 
+    const filter = {}; // An empty filter matches all documents
+    const update = {
+      $set: { postedToday: false },
+    };
+
+    const updateResult = await UserState.updateMany(filter, update);
+    console.log(`Matched ${updateResult.matchedCount} documents and modified ${updateResult.modifiedCount} documents.`);
+
 	console.log(`Ready! Logged in as ${c.user.tag}`);
   CUTOFFCLOCK(client);
 
@@ -45,6 +53,7 @@ client.once(Events.ClientReady, async c => {
     CUTOFFCLOCK(client);
     
   }, 1000 * 10);
+
 
 });
 
