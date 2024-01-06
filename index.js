@@ -23,12 +23,13 @@ const updateUserState = require('./patterns/updateUserState');
 const dailySLICE = require('./patterns/dailySLICE');
 const slice = require('./patterns/slice');
 const UserState = require('./models/userState');
+const CUTOFFCLOCK = require('./patterns/cutOffClock');
 registerCommands;
 
 client.once(Events.ClientReady, async c => {
 
 	console.log(`Ready! Logged in as ${c.user.tag}`);
-  client.user.setPresence( { status: "away" });
+  CUTOFFCLOCK(client);
 
   const KimoServer = await client.guilds.fetch('1192955466872004669');
   const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
@@ -41,6 +42,7 @@ client.once(Events.ClientReady, async c => {
   setInterval(() => {
 
     dailySLICE(client);
+    CUTOFFCLOCK(client);
     
   }, 1000 * 10);
 
