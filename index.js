@@ -33,7 +33,7 @@ client.once(Events.ClientReady, async c => {
   const KimoServer = await client.guilds.fetch('1192955466872004669');
   const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
 
-  // botLogChannel.send ('# BOT ONLINE');
+  botLogChannel.send (`# I've awoken.`);
 
   postListener(client);
   dailySLICE(client);

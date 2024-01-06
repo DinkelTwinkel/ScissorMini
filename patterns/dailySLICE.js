@@ -30,6 +30,9 @@ module.exports = async (client) => {
                 const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
                 botLogChannel.send('NEW DAY, SLICING...');
 
+                const kimoChannel = KimoServer.channels.cache.get('1192955757705052281');
+                kimoChannel.send ('NEW DAY, SLICING...');
+
                 slice(client);
 
             }
