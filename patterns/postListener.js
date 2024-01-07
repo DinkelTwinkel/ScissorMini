@@ -74,6 +74,7 @@ module.exports = async (client) => {
                 }, 30 * 1000);
 
                 await result.save();
+                updateUserState(message.member);
             }
 
             // logging
