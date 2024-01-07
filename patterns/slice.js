@@ -13,10 +13,16 @@ module.exports = async (client) => {
         members.forEach( async member => {
 
             const userData = await UserState.findOne ({ userID: member.user.id })
+
+            if (userData) {
             botLogChannel.send (`Slicing ${member}, changing state to ${userData.currentState} to ${staggerState(userData.currentState)}`, {"allowed_mentions": {"parse": []}})
             userData.currentState = staggerState(userData.currentState);
             userData.postedToday = false;
             await userData.save();
+            }
+            else {
+                botLogChannel.send (`STARTING KIMO FOR ${member}, STATE SET TO DANGER`, {"allowed_mentions": {"parse": []}})
+            }
             updateUserState(member);
 
         });

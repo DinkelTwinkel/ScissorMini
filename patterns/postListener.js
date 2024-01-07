@@ -71,7 +71,7 @@ module.exports = async (client) => {
                 const response = await message.reply({content: `VALID POST: Your current streak is ${result.streak}`, embeds: [embed] })
                 setTimeout(() => {
                     response.delete();
-                }, 20 * 1000);
+                }, 30 * 1000);
 
                 await result.save();
             }

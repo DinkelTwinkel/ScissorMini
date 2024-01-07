@@ -59,7 +59,7 @@ client.once(Events.ClientReady, async c => {
 
 // new user join auto role
 client.on(Events.GuildMemberAdd, async (member) => {
-  updateUserState(member);
+  // updateUserState(member);
 });
 
 
