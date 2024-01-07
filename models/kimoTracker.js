@@ -8,7 +8,6 @@ const kimoTracker = new Schema({
 	nextDate: { type: Number, default: 0 },
 	kimoActive: { type: Boolean, default: false },
 	kimoInfiniteMode: { type: Boolean, default: false },
-
 	kimoLiveDays: { type: Number, required: true,  default: 0  },
 
 }, { timestamps: true });
