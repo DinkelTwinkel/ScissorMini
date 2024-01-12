@@ -19,6 +19,15 @@ module.exports = async (client) => {
 
             const currentDate = new Date();
 
+            if (currentDate.getDay() === 7) {
+                const response = await message.reply({content: ` No posting on a sunday! BONK ` })
+                message.member.roles.add('1195447821902561370');
+                setTimeout(() => {
+                    response.delete();
+                }, 30 * 1000);
+                message.delete();
+            }
+            
             message.react('✅');
             console.log ('valid post detected by user: '+ message.author.id );
 

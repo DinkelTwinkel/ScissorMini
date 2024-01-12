@@ -1,7 +1,6 @@
 const KimoTracker = require('../models/kimoTracker');
-const UserState = require('../models/userState');
 const slice = require('./slice');
-const updateUserState = require('./updateUserState');
+const sundayRevive = require('./sundayRevive');
 
 module.exports = async (client) => {
 
@@ -16,6 +15,13 @@ module.exports = async (client) => {
 
         // perform twelve o clock check
         if (currentUTCHour >= 12) {
+
+            const KimoServer = await client.guilds.fetch('1192955466872004669');
+            const kimoChannel = KimoServer.channels.cache.get('1192955757705052281');
+            const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
+
+
+
             // paste twelve o clock find next date.
 
                 if (currentDate.getDate() >= result.nextDate) {
@@ -26,11 +32,14 @@ module.exports = async (client) => {
 
                 await result.save();
 
-                const KimoServer = await client.guilds.fetch('1192955466872004669');
-                const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
-                botLogChannel.send('NEW DAY, SLICING...');
+                if (currentDate.getDay() === 7) {
+                    sundayRevive(client);
+                    return
+                }
 
-                const kimoChannel = KimoServer.channels.cache.get('1192955757705052281');
+                // skip if saturday or revive if sunday.
+
+                botLogChannel.send('NEW DAY, SLICING...');
                 kimoChannel.send ('NEW DAY, SLICING...');
 
                 slice(client);

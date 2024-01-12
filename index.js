@@ -24,6 +24,7 @@ const dailySLICE = require('./patterns/dailySLICE');
 const slice = require('./patterns/slice');
 const UserState = require('./models/userState');
 const CUTOFFCLOCK = require('./patterns/cutOffClock');
+const createWeeklySummary = require('./patterns/createWeeklySummary');
 registerCommands;
 
 client.once(Events.ClientReady, async c => {
@@ -106,6 +107,10 @@ client.on(Events.MessageCreate, async (message) => {
       } 
       if (command === 'forceslice') {
         slice(client);
+      } 
+
+      if (command === 'summary') {
+        createWeeklySummary(client);
       } 
 
       if (command === 'resetstate') {
