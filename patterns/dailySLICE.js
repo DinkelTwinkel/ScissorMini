@@ -32,7 +32,7 @@ module.exports = async (client) => {
 
                 await result.save();
 
-                if (currentDate.getDay() === 7) {
+                if (currentDate.getDay() === 0) {
                     sundayRevive(client);
                     return
                 }

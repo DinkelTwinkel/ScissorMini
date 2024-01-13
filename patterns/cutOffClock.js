@@ -25,7 +25,9 @@ module.exports = async (client) => {
     const differenceSeconds = differenceMiliUTC / 1000;
     const differenceMinutes = Math.floor( differenceSeconds / 60);
 
-    if (nextUTCDay.getDay() === 7 || nextUTCDay.getDay() === 1) {
+    //console.log(nextUTCDay.getDay());
+
+    if (nextUTCDay.getDay() === 0 || nextUTCDay.getDay() === 1) {
         client.user.setPresence({
             activities: [{ name: `WEEKEND MODE`, type: ActivityType.Watching }],
             status: 'Online',
