@@ -19,7 +19,7 @@ module.exports = async (client) => {
 
             const currentDate = new Date();
 
-            if (currentDate.getDay() === 7) {
+            if (currentDate.getDay() === 0) {
                 const response = await message.reply({content: ` No posting on a sunday! BONK ` })
                 message.member.roles.add('1195447821902561370');
                 setTimeout(() => {

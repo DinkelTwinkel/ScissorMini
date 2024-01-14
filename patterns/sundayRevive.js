@@ -1,4 +1,5 @@
 const UserState = require("../models/userState");
+const updateUserState = require("./updateUserState");
 
 module.exports = async (client) => {
 
@@ -6,7 +7,7 @@ module.exports = async (client) => {
     const kimoChannel = KimoServer.channels.cache.get('1192955757705052281');
     const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
 
-    const members = await client.guilds.fetch('1192955466872004669').members.fetch();
+    const members = await KimoServer.members.fetch();
 
     members.forEach(async member => {
       const result = await UserState.findOne({ userID: member.user.id });

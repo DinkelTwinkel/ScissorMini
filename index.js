@@ -25,6 +25,7 @@ const slice = require('./patterns/slice');
 const UserState = require('./models/userState');
 const CUTOFFCLOCK = require('./patterns/cutOffClock');
 const createWeeklySummary = require('./patterns/createWeeklySummary');
+const sundayRevive = require('./patterns/sundayRevive');
 registerCommands;
 
 client.once(Events.ClientReady, async c => {
@@ -111,6 +112,10 @@ client.on(Events.MessageCreate, async (message) => {
 
       if (command === 'summary') {
         createWeeklySummary(client);
+      } 
+
+      if (command === 'reviveall') {
+        sundayRevive(client);
       } 
 
       if (command === 'resetstate') {
