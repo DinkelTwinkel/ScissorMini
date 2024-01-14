@@ -10,7 +10,7 @@ module.exports = async (client) => {
     const currentUTCHour = currentDate.getUTCHours();
 
     const result = await KimoTracker.findOne({ serverId: '1192955466872004669' });
-    console.log (currentDate.getDay());
+    // console.log (currentDate.getDay());
     
     if (result == null) return;
 
