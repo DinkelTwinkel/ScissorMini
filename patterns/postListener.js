@@ -26,6 +26,7 @@ module.exports = async (client) => {
                     response.delete();
                 }, 30 * 1000);
                 message.delete();
+                return;
             }
             
             message.react('✅');
