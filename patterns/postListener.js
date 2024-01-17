@@ -102,7 +102,7 @@ module.exports = async (client) => {
     });
 
     function attachmentTest(message) {
-        const imageExtensions = /\.(png|jpeg|jpg|jpg|webp)/i;
+        const imageExtensions = /\.(png|jpeg|jpg|jpg|webp|gif)/i;
     
         if (message.attachments.size > 0) {
             const attachment = message.attachments.first(); // Get the first attachment (usually the most recent one)
