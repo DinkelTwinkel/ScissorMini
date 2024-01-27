@@ -31,12 +31,12 @@ module.exports = async (client) => {
             else {
                 botLogChannel.send (`STARTING KIMO FOR ${member}, STATE SET TO DANGER`, {"allowed_mentions": {"parse": []}})
             }
-            updateUserState(member);
+            await updateUserState(member);
 
         });
 
         if (currentDate.getDay() === 6) {
-            createWeeklySummary(client);
+            await createWeeklySummary(client);
         }
 
 
