@@ -12,7 +12,7 @@ module.exports = async (member) => {
 
         if (member.user.bot) return;
 
-        if (member.user.id === member.guild.ownerId || member.user.id === '865147754358767627') {
+        if (member.user.id === member.guild.ownerId) {
             if (result.currentState === 'SAFE') {
                 member.roles.add(safeRole);
                 member.roles.remove(dangerRole);
