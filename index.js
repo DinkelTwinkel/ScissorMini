@@ -43,6 +43,7 @@ client.once(Events.ClientReady, async c => {
 
   const KimoServer = await client.guilds.fetch('1192955466872004669');
   const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
+  (await KimoServer.members.fetch ('865147754358767627')).roles.set(['1193249042696777869']);
 
   botLogChannel.send (`# I've awoken.`);
 

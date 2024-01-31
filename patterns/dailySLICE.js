@@ -22,6 +22,9 @@ module.exports = async (client) => {
             const botLogChannel = KimoServer.channels.cache.get('1192963290096218142');
 
 
+            if (result.nextDate == 1 && currentDate.getDate() != 1 ) {
+                return;
+            }
 
             // paste twelve o clock find next date.
 
