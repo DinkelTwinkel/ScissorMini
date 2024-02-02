@@ -7,8 +7,15 @@ const kimoTracker = new Schema({
 	currentDate: { type: Number, required: true },
 	nextDate: { type: Number, default: 0 },
 	kimoActive: { type: Boolean, default: false },
-	kimoInfiniteMode: { type: Boolean, default: false },
-	kimoLiveDays: { type: Number, required: true,  default: 0  },
+	dailyDeadline: { type: Number, default: 12 },
+	safeRoleID: { type: String, default: 'n/a' },
+	dangerRoleID: { type: String, default: 'n/a' },
+	deadRoleID: { type: String, default: 'n/a' },
+	adminRoleID: { type: String, default: 'n/a' },
+	kimoChannel: { type: String, default: 'n/a' },
+	botLogChannel: { type: String, default: 'n/a' },
+	participantRoleID: { type: String, default: 'n/a' },
+	introductionChannelID: { type: String, default: 'n/a' },
 
 }, { timestamps: true });
 
